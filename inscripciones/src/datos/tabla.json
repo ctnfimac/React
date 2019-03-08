@@ -1,0 +1,29 @@
+{
+	"header" : [
+		{
+			"dia" : "lunes",
+			"color" : "purple-text"
+		},
+		{
+			"dia" : "martes",
+			"color" : "blue-text"
+		},
+		{
+			"dia" : "miercoles",
+			"color" : "teal-text"
+		},
+		{
+			"dia" : "jueves",
+			"color" : "indigo-text"
+		},
+		{
+			"dia" : "viernes",
+			"color" : "amber-text"
+		},
+		{
+			"dia" : "sabado",
+			"color" : "brown-text"
+		}
+
+	]
+}

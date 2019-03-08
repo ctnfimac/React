@@ -1,18 +1,25 @@
 import React, {Component} from 'react'
-
+import {header} from './../datos/tabla.json'
 
 class Tabla extends Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			header
+		}
+	}
 	render(){
+		const tablacabecera = this.state.header.map((item,i)=>{
+			return (
+				<th key={i}><i className={ "fas fa-leaf mr-2 " + item.color} aria-hidden="true"></i>{item.dia}</th>
+			)
+		});
+
 		return(
 			<table className="table border white">
 				<thead>
 					<tr>
-					<th><i className="fas fa-leaf mr-2 purple-text" aria-hidden="true"></i>Lunes</th>
-					<th><i className="fas fa-leaf mr-2 blue-text" aria-hidden="true"></i>Martes</th>
-					<th><i className="fas fa-leaf mr-2 teal-text" aria-hidden="true"></i>Miércoles</th>
-					<th><i className="fas fa-leaf mr-2 indigo-text" aria-hidden="true"></i>Jueves</th>
-					<th><i className="fas fa-leaf mr-2 amber-text" aria-hidden="true"></i>Viernes</th>
-					<th><i className="fas fa-leaf mr-2 brown-text" aria-hidden="true"></i>Sabado</th>
+					 	{tablacabecera}
 					</tr>
 				</thead>
 

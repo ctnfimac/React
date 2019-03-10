@@ -1,29 +1,37 @@
 {
 	"header" : [
 		{
-			"dia" : "lunes",
+			"dia" : "Monday",
 			"color" : "purple-text"
 		},
 		{
-			"dia" : "martes",
+			"dia" : "Tuesday",
 			"color" : "blue-text"
 		},
 		{
-			"dia" : "miercoles",
+			"dia" : "Wednesday",
 			"color" : "teal-text"
 		},
 		{
-			"dia" : "jueves",
+			"dia" : "Thursday",
 			"color" : "indigo-text"
 		},
 		{
-			"dia" : "viernes",
+			"dia" : "Friday",
 			"color" : "amber-text"
 		},
 		{
-			"dia" : "sabado",
+			"dia" : "Saturday",
 			"color" : "brown-text"
 		}
 
+	],
+	"tablaContent" : [
+		{
+			"morning": ["bbdd 2","","","Seguridad de aplicaciones Web","",""],
+			"late": ["","","","","",""],
+			"night": ["","","","","",""],
+			"ndays" : 6
+		}
 	]
 }

@@ -20,8 +20,22 @@ class App extends Component {
 	  this.addMateria = this.addMateria.bind(this);
   }
 
-  addMateria(materia){
-	console.log('agregando materia', materia);
+  addMateria(dato){	  
+	  switch(dato.turn){
+		  case 'morning':
+		 	    tablaContent[0].morning[dato.day] = dato.materia;
+		  		break;
+		  case 'late':
+		  		tablaContent[0].late[dato.day] = dato.materia;
+		  		break;
+		  case 'night':
+		  		tablaContent[0].night[dato.day] = dato.materia;
+		  		break;
+	  }	
+
+	  this.setState({
+		  tablaContent
+	  });
   }
 
   render() {

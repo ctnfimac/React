@@ -8,8 +8,31 @@ class Formulario extends Component{
 		super(props);
 			this.state = {
 				dias,
-				horarios
+				horarios,
+				materia: '',
+				day: '',
+				turn: ''		
 			}
+		this.addMateria = props.addMateria;
+		this.setMateria = this.setMateria.bind(this);
+		this.actualizoForm = this.actualizoForm.bind(this);
+	}
+
+	actualizoForm(e){
+		const {value,name} = e.target;
+		this.setState ({
+			[name] : value
+		})
+	}
+
+	setMateria(e){
+		e.preventDefault();
+		const datos = {
+			materia : this.state.materia,
+			day :  this.state.day,
+			turn : this.state.turn
+		}
+		this.props.addMateria(datos);
 	}
 
 	render(){
@@ -18,19 +41,35 @@ class Formulario extends Component{
 		);
 		
 		const horarios = this.state.horarios.map((horario,i)=>
-			<option value={i} key={i}>{horario}</option>
+			<option value={horario} key={i}>{horario}</option>
 		);
 
 		return(
-			<form  className="text-center border border-light p-5 white">
+			<form  className="text-center border border-light p-5 white" onSubmit = {this.setMateria}>
 				<p className="h4 mb-4">Inscription</p>
-				<input type="text" id="defaultSubscriptionFormPassword" className="form-control mb-4" placeholder="Matter´s name" />
-				<select className="browser-default custom-select custom-select-lg mb-3">
-					<option selected>Choose your day</option>
+				<input 
+						type="text" 
+						name="materia" 
+						className="form-control mb-4" 
+						placeholder="Matter´s name" 
+						onChange={this.actualizoForm}
+				/>
+
+				<select 
+					name="day"
+					className="browser-default custom-select custom-select-lg mb-3"
+					onChange={this.actualizoForm}
+				>
+					<option>Choose your day</option>
 					{dias}
 				</select>
-				<select className="browser-default custom-select custom-select-lg mb-3">
-					<option selected>Choose your turn</option>
+
+				<select 
+					name="turn"
+					className="browser-default custom-select custom-select-lg mb-3"
+					onChange={this.actualizoForm}
+				>
+					<option>Choose your turn</option>
 					{horarios}
 				</select>
     			<button className="btn btn-info btn-block" type="submit">Add</button>

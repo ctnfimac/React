@@ -28,9 +28,9 @@
 	],
 	"tablaContent" : [
 		{
-			"morning": ["bbdd 2","","","Seguridad de aplicaciones Web","",""],
+			"morning": ["","","","","",""],
 			"late": ["","","","","",""],
-			"night": ["","","","","",""],
+			"night": ["","","","base de datos 2","",""],
 			"ndays" : 6
 		}
 	]

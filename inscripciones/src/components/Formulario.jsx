@@ -32,7 +32,9 @@ class Formulario extends Component{
 			day :  this.state.day,
 			turn : this.state.turn
 		}
+		document.getElementById("formu").reset();
 		this.props.addMateria(datos);
+		// console.log(e)
 	}
 
 	render(){
@@ -45,7 +47,7 @@ class Formulario extends Component{
 		);
 
 		return(
-			<form  className="text-center border border-light p-5 white" onSubmit = {this.setMateria}>
+			<form id="formu" className="text-center border border-light p-5 white" onSubmit = {this.setMateria}>
 				<p className="h4 mb-4">Inscription</p>
 				<input 
 						type="text" 

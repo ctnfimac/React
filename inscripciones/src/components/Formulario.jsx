@@ -34,7 +34,6 @@ class Formulario extends Component{
 		}
 		document.getElementById("formu").reset();
 		this.props.addMateria(datos);
-		// console.log(e)
 	}
 
 	render(){
@@ -43,7 +42,7 @@ class Formulario extends Component{
 		);
 		
 		const horarios = this.state.horarios.map((horario,i)=>
-			<option value={horario} key={i}>{horario}</option>
+			<option value={i} key={i}>{horario}</option>
 		);
 
 		return(

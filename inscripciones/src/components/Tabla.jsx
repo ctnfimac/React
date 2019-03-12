@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-// import {header, tablaContent} from './../datos/tabla.json'
-import {header, tablaContent} from './../datos/tabla2.json'
+import {header, tablaContent} from './../datos/tabla.json'
+import {dias,horarios} from './../datos/form.json';
+import TablaFila from './TablaFila';
 
 class Tabla extends Component{
 	constructor(props){
@@ -9,13 +10,22 @@ class Tabla extends Component{
 			header,
 			tablaContent
 		}
+		const ndias = dias.length * horarios.length;
+		for( let i = this.state.tablaContent.length + 1 ; i <= (ndias ) ; i++ ){
+				this.state.tablaContent.push(
+					{
+						"id": i ,
+						"matter": "",
+						"turn": "",
+						"day": ""
+					}
+				);
+		}
 		this.delete = this.delete.bind(this);
 	}
 
 	delete(e){
 		console.log('datos: ',e);
-		//console.log('estoy en delete');
-		// this.props.deleteMateria(null);
 	}
 
 	render(){
@@ -25,27 +35,11 @@ class Tabla extends Component{
 			<th key={i}><i className={ "fas fa-leaf mr-2 " + item.color} aria-hidden="true"></i>{item.dia}</th>
 		);
 		
-		const tablaMorning = this.state.tablaContent[0].morning.map((item,i)=>{
-			if(item != "") return <th key={i}>{item}
-									<button  
-											className="border border-0 pt-1 white fas fa-trash-alt float-right red-text"
-											// value= {"morning",i}
-											onClick = { this.delete("morning") }>
-									</button>
-							      </th>
-			else return <th key={i}><i className="fas fa-graduation-cap mr-2 grey-text" aria-hidden="true"></i>{item}</th>
-		});
-
-		const tablaLate = this.state.tablaContent[0].late.map((item,i)=>{
-			if(item != "") return <th key={i}>{item}<button className="border border-0 pt-1 white fas fa-trash-alt float-right red-text"></button></th>
-			else return <th key={i}><i className="fas fa-graduation-cap mr-2 grey-text" aria-hidden="true"></i>{item}</th>
-		});
-		
-		const tablaNight = this.state.tablaContent[0].night.map((item,i)=>{
-			if(item != "") return <th key={i}>{item}<button onClick = { this.delete } className="border border-0 pt-1 white fas fa-trash-alt float-right red-text"></button></th>
-			else return <th key={i}><i className="fas fa-graduation-cap mr-2 grey-text" aria-hidden="true"></i>{item}</th>
-		});
-
+		const arrayDeFilas = new Array(horarios.length);
+		for( let i = 0 ; i < horarios.length ; i++){
+			arrayDeFilas[i] = this.state.tablaContent.filter(item=>item.id > (i * 6) && item.id <= (6*(i+1)));
+		}
+	
 		return(
 			<table className="table table-bordered white">
 				<thead>
@@ -55,15 +49,14 @@ class Tabla extends Component{
 				</thead>
 
 				<tbody>
-					<tr>
-						{tablaMorning}
-					</tr>
-					<tr>
-						{tablaLate}
-					</tr>
-					<tr>
-						{tablaNight}
-					</tr>
+					{
+						arrayDeFilas.map((fila , i)=>
+							<TablaFila 
+								key = { fila + i }
+								fila = {fila} 
+							/>
+						)
+					}
 				</tbody>
 			</table>
 		);

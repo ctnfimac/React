@@ -16,36 +16,17 @@ class App extends Component {
 	  super(props);
 	  this.state = {
 		  header, 
-		  tablaContent
+		  tablaContent,
+		  nMaterias : 0
 	  }
 
 	  this.addMateria = this.addMateria.bind(this);
 	  this.deleteMateria = this.deleteMateria.bind(this);
   }
 
-  addMateria(dato){	  
-	//   switch(dato.turn){
-	// 	  case 'morning':
-	// 	 	    tablaContent[0].morning[dato.day] = dato.materia;
-	// 	  		break;
-	// 	  case 'late':
-	// 	  		tablaContent[0].late[dato.day] = dato.materia;
-	// 	  		break;
-	// 	  case 'night':
-	// 	  		tablaContent[0].night[dato.day] = dato.materia;
-	// 			  break;
-	// 	  default:
-		  
-	// 	  	break;
-	//   }	
 
-	//   this.setState({
-	// 	  tablaContent
-	//   });
-	// const indice = ((parseInt(dato.day) + 1) * (parseInt(dato.turn) + 1) );// + 3 * (parseInt(dato.turn));
+  addMateria(dato){	
 	const indice = ( dias.length * parseInt(dato.turn) ) + parseInt(dato.day) + 1 ;
-	console.log('indice:',indice);
-	console.log('tabla content: ', this.state.tablaContent);
 	this.setState({
 		tablaContent : this.state.tablaContent.map((item)=>{
 			if(item.id === indice ){
@@ -54,9 +35,9 @@ class App extends Component {
 				item.turn = dato.turn;
 			}
 			return item;
-		})
+		}),
+		nMaterias : this.state.tablaContent.filter(item=> item.matter !== '').length
 	})
-	console.log('estoy en addMateria', this.tablaContent)
   }
 
   deleteMateria(materia){
@@ -66,7 +47,7 @@ class App extends Component {
   render() {
     return (
       <div className="App mb-5">
-	  	<Menu />
+	  	<Menu nItems= {this.state.nMaterias}/>
 		<main className="mt-5">
 			<div className="container-fluid">
 				<div className="row">

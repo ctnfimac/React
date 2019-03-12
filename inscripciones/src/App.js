@@ -4,7 +4,8 @@ import './App.css';
 // components
 import Menu from './components/Menu';
 import Formulario from './components/Formulario';
-import Tabla from './components/Tabla';
+// import Tabla from './components/Tabla';
+import Tabla from './components/Tablax';
 
 import {header, tablaContent} from './datos/tabla.json'
 
@@ -18,6 +19,7 @@ class App extends Component {
 	  }
 
 	  this.addMateria = this.addMateria.bind(this);
+	  this.deleteMateria = this.deleteMateria.bind(this);
   }
 
   addMateria(dato){	  
@@ -30,13 +32,20 @@ class App extends Component {
 		  		break;
 		  case 'night':
 		  		tablaContent[0].night[dato.day] = dato.materia;
-		  		break;
+				  break;
+		  default:
+		  
+		  	break;
 	  }	
 
 	  this.setState({
 		  tablaContent
 	  });
-	  
+
+  }
+
+  deleteMateria(materia){
+	console.log('estoy en deleteMateria()');
   }
 
   render() {
@@ -50,7 +59,7 @@ class App extends Component {
 						<Formulario addMateria = {this.addMateria}/>
 					</div>
 					<div className="col-lg-8">
-						<Tabla />
+						<Tabla deleteMateria = { this.deleteMateria }/>
 					</div>
 				</div>
 			</div>	

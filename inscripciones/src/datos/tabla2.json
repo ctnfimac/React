@@ -1,0 +1,31 @@
+{
+	"header" : [
+		{
+			"dia" : "Monday",
+			"color" : "purple-text"
+		},
+		{
+			"dia" : "Tuesday",
+			"color" : "blue-text"
+		},
+		{
+			"dia" : "Wednesday",
+			"color" : "teal-text"
+		},
+		{
+			"dia" : "Thursday",
+			"color" : "indigo-text"
+		},
+		{
+			"dia" : "Friday",
+			"color" : "amber-text"
+		},
+		{
+			"dia" : "Saturday",
+			"color" : "brown-text"
+		}
+
+	],
+	"tablaContent" : [
+	]
+}

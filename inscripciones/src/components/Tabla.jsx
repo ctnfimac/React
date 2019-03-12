@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import {header, tablaContent} from './../datos/tabla.json'
+// import {header, tablaContent} from './../datos/tabla.json'
+import {header, tablaContent} from './../datos/tabla2.json'
 
 class Tabla extends Component{
 	constructor(props){
@@ -8,7 +9,15 @@ class Tabla extends Component{
 			header,
 			tablaContent
 		}
+		this.delete = this.delete.bind(this);
 	}
+
+	delete(e){
+		console.log('datos: ',e);
+		//console.log('estoy en delete');
+		// this.props.deleteMateria(null);
+	}
+
 	render(){
 
 		// datos traidos del json
@@ -17,7 +26,13 @@ class Tabla extends Component{
 		);
 		
 		const tablaMorning = this.state.tablaContent[0].morning.map((item,i)=>{
-			if(item != "") return <th key={i}>{item}<button className="border border-0 pt-1 white fas fa-trash-alt float-right red-text"></button></th>
+			if(item != "") return <th key={i}>{item}
+									<button  
+											className="border border-0 pt-1 white fas fa-trash-alt float-right red-text"
+											// value= {"morning",i}
+											onClick = { this.delete("morning") }>
+									</button>
+							      </th>
 			else return <th key={i}><i className="fas fa-graduation-cap mr-2 grey-text" aria-hidden="true"></i>{item}</th>
 		});
 
@@ -27,7 +42,7 @@ class Tabla extends Component{
 		});
 		
 		const tablaNight = this.state.tablaContent[0].night.map((item,i)=>{
-			if(item != "") return <th key={i}>{item}<button className="border border-0 pt-1 white fas fa-trash-alt float-right red-text"></button></th>
+			if(item != "") return <th key={i}>{item}<button onClick = { this.delete } className="border border-0 pt-1 white fas fa-trash-alt float-right red-text"></button></th>
 			else return <th key={i}><i className="fas fa-graduation-cap mr-2 grey-text" aria-hidden="true"></i>{item}</th>
 		});
 

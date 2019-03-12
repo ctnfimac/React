@@ -1,0 +1,71 @@
+import React, {Component} from 'react'
+// import {header, tablaContent} from './../datos/tabla.json'
+import {header, tablaContent} from './../datos/tabla2.json'
+import {dias,horarios} from './../datos/form.json';
+import TablaFila from './TablaFila';
+
+class Tablax extends Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			header,
+			tablaContent
+		}
+		const ndias = dias.length * horarios.length;
+		// agrego cada horario vacio al array tablaContent
+		for( let i = 1 ; i <= ndias ; i++ ){
+			this.state.tablaContent.push(
+				{
+					"id": i ,
+					"matter": "",
+					"turn": "",
+					"day": ""
+				}
+			);
+		}
+		// console.log(this.state.tablaContent)
+		this.delete = this.delete.bind(this);
+	}
+
+	delete(e){
+		console.log('datos: ',e);
+		//console.log('estoy en delete');
+		// this.props.deleteMateria(null);
+	}
+
+	render(){
+
+		// datos traidos del json
+		const tablacabecera = this.state.header.map((item,i)=>
+			<th key={i}><i className={ "fas fa-leaf mr-2 " + item.color} aria-hidden="true"></i>{item.dia}</th>
+		);
+		
+		const arrayDeFilas = new Array(horarios.length);
+		for( let i = 0 ; i < horarios.length ; i++){
+			arrayDeFilas[i] = this.state.tablaContent.filter(item=>item.id > (i * 6) && item.id <= (6*(i+1)));
+		}
+	
+		return(
+			<table className="table table-bordered white">
+				<thead>
+					<tr>
+					 	{tablacabecera}
+					</tr>
+				</thead>
+
+				<tbody>
+					{
+						arrayDeFilas.map((fila , i)=>
+							<TablaFila 
+								key = { fila + i }
+								fila = {fila} 
+							/>
+						)
+					}
+				</tbody>
+			</table>
+		);
+	}
+}
+
+export default Tablax;

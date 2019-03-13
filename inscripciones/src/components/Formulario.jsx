@@ -50,13 +50,6 @@ class Formulario extends Component{
 		return(
 			<form id="formu" className="text-center border border-light p-5 white" onSubmit = {this.setMateria}>
 				<p className="h4 mb-4">Inscription</p>
-				{/* <input 
-						type="text" 
-						name="materia" 
-						className="form-control mb-4" 
-						placeholder="Matter´s name" 
-						onChange={this.actualizoForm}
-				/> */}
 				<div className="md-form">
 					<input 
 						type="text" 

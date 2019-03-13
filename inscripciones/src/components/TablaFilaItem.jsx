@@ -10,12 +10,12 @@ const TablaFilaItem = (props)=>{
 								onClick = { props.delete.bind(this,props.id) } >
 						</button>
 						<button 
+								data-toggle="modal" 
+								data-target={ "#m" + props.id}
 								className="m-0 fas fa-eye border border-0 pt-1 white red-text text-warning"
 						></button>
 					</ul>
 				</th>
 }
-
-
 
 export default TablaFilaItem ;

@@ -5,6 +5,7 @@ import './App.css';
 import Menu from './components/Menu';
 import Formulario from './components/Formulario';
 import Tabla from './components/Tabla';
+import Modal from './components/Modal';
 
 // dates
 import {header, tablaContent} from './datos/tabla.json'
@@ -39,8 +40,6 @@ class App extends Component {
 		}),
 		nMaterias : this.state.tablaContent.filter(item=> item.matter !== '').length
 	})
-
-	console.log('datos',this.state.tablaContent);
   }
 
   deleteMateria(index){
@@ -69,11 +68,21 @@ class App extends Component {
 						<Formulario addMateria = {this.addMateria}/>
 					</div>
 					<div className="col-lg-9">
-						<Tabla deleteMateria = { this.deleteMateria }/>
+						<Tabla 
+							deleteMateria = { this.deleteMateria }
+						/>
 					</div>
 				</div>
 			</div>	
-		</main>	
+		</main>
+		{
+			this.state.tablaContent.map((item,i)=>(
+				<Modal 
+					key = { i }
+					datos = { item }
+				/>
+			))
+		}
       </div>
     );
   }

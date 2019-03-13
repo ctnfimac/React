@@ -5,7 +5,7 @@ const TablaFilaItem = (props)=>{
 	else return <th key={props.id}>{props.matter}
 					<button  
 							className="border border-0 pt-1 white fas fa-trash-alt float-right red-text"
-							/*onClick = { this.delete("morning") }*/ >
+							onClick = { props.delete.bind(this,props.id) } >
 					</button>
 				</th>
 }

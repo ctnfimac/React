@@ -11,6 +11,7 @@ const TablaFila = (props) =>(
 					matter = {celda.matter}
 					turn = {celda.turn}
 					day = {celda.day} 
+					delete = {props.delete}
 				/>
 			))
 		}

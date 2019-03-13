@@ -24,8 +24,8 @@ class Tabla extends Component{
 		this.delete = this.delete.bind(this);
 	}
 
-	delete(e){
-		console.log('datos: ',e);
+	delete(index){
+		 this.props.deleteMateria(index);
 	}
 
 	render(){
@@ -54,6 +54,7 @@ class Tabla extends Component{
 							<TablaFila 
 								key = { fila + i }
 								fila = {fila} 
+								delete = { this.delete }
 							/>
 						)
 					}

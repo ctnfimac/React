@@ -40,8 +40,18 @@ class App extends Component {
 	})
   }
 
-  deleteMateria(materia){
-	console.log('estoy en deleteMateria()');
+  deleteMateria(index){
+	this.setState({
+		tablaContent: this.state.tablaContent.map((item)=>{
+			if( item.id === index ){
+				item.matter = "";
+				item.day = "";
+				item.turn = "";
+			}
+			return item;
+		}),
+		nMaterias : this.state.tablaContent.filter(item=> item.matter !== '').length
+	})
   }
 
   render() {

@@ -17,7 +17,8 @@ class Tabla extends Component{
 						"id": i ,
 						"matter": "",
 						"turn": "",
-						"day": ""
+						"day": "",
+						"description": ""
 					}
 				);
 		}

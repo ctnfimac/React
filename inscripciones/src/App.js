@@ -33,11 +33,14 @@ class App extends Component {
 				item.matter = dato.materia;
 				item.day = dato.day;
 				item.turn = dato.turn;
+				item.description = dato.description;
 			}
 			return item;
 		}),
 		nMaterias : this.state.tablaContent.filter(item=> item.matter !== '').length
 	})
+
+	console.log('datos',this.state.tablaContent);
   }
 
   deleteMateria(index){
@@ -47,6 +50,7 @@ class App extends Component {
 				item.matter = "";
 				item.day = "";
 				item.turn = "";
+				item.description = "";
 			}
 			return item;
 		}),
@@ -61,10 +65,10 @@ class App extends Component {
 		<main className="mt-5">
 			<div className="container-fluid">
 				<div className="row">
-					<div className="col-lg-4">
+					<div className="col-lg-3">
 						<Formulario addMateria = {this.addMateria}/>
 					</div>
-					<div className="col-lg-8">
+					<div className="col-lg-9">
 						<Tabla deleteMateria = { this.deleteMateria }/>
 					</div>
 				</div>

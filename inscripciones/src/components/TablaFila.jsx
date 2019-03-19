@@ -12,6 +12,7 @@ const TablaFila = (props) =>(
 					turn = {celda.turn}
 					day = {celda.day} 
 					delete = {props.delete}
+					openModal = {props.openModal}
 				/>
 			))
 		}

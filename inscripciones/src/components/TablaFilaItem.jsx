@@ -9,6 +9,12 @@ const TablaFilaItem = (props)=>{
 								className="m-0 border border-0 pt-1 white fas fa-trash-alt red-text"
 								onClick = { props.delete.bind(this,props.id) } >
 						</button>
+						<button  
+								data-toggle="modal" 
+								className="m-0 border border-0 pt-1 white fas fa-pencil-alt green-text"
+								data-target={ "#modalUpdate"}
+								onClick = { props.openModal.bind(this,props.id) } >
+						</button>
 						<button 
 								data-toggle="modal" 
 								data-target={ "#m" + props.id}

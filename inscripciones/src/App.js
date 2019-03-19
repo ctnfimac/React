@@ -6,6 +6,7 @@ import Menu from './components/Menu';
 import Formulario from './components/Formulario';
 import Tabla from './components/Tabla';
 import Modal from './components/Modal';
+import FormUpdate from './components/FormUpdate';
 
 // dates
 import {header, tablaContent} from './datos/tabla.json'
@@ -18,11 +19,20 @@ class App extends Component {
 	  this.state = {
 		  header, 
 		  tablaContent,
-		  nMaterias : 0
+		  nMaterias : 0,
+		  modalUpdateInfo: 	{
+								"id": "" ,
+								"matter": "",
+								"turn": "",
+								"day": "",
+								"description": ""
+							}
 	  }
 
 	  this.addMateria = this.addMateria.bind(this);
 	  this.deleteMateria = this.deleteMateria.bind(this);
+	  this.editMatter = this.editMatter.bind(this);
+	  this.editMatterModal = this.editMatterModal.bind(this);
   }
 
 
@@ -40,6 +50,7 @@ class App extends Component {
 		}),
 		nMaterias : this.state.tablaContent.filter(item=> item.matter !== '').length
 	})
+	document.getElementById('formu').reset();
   }
 
   deleteMateria(index){
@@ -57,6 +68,34 @@ class App extends Component {
 	})
   }
 
+  editMatter(dato){
+	const materia = this.state.tablaContent.filter(contenido => contenido.id === dato.id )[0];
+	// let indice = materia.id;
+	// indice = (dato.turn !== "" && dato.day !== "") ? ( dias.length * parseInt(dato.turn) ) + parseInt(dato.day) + 1 : indice;
+	// indice = (dato.turn !== "" && dato.day === "") ? ( dias.length * parseInt(dato.turn) ) + parseInt(materia.day) + 1 : indice;
+	// indice = (dato.turn === "" && dato.day !== "") ? ( dias.length * parseInt(materia.turn) ) + parseInt(dato.day) + 1 : indice;
+	
+	this.setState({
+		tablaContent : this.state.tablaContent.map((item)=>{
+			if(item.id === dato.id){
+				item.matter = (dato.materia === "") ? materia.matter : dato.materia ;
+				item.description = (dato.description === "") ? materia.description : dato.description;
+			}
+			return item;
+		}),
+		nMaterias : this.state.tablaContent.filter(item=> item.matter !== '').length
+	})
+	document.getElementById('formUpdate').reset();
+  }
+
+
+  editMatterModal(dato){
+	  document.getElementById('formUpdate').reset();
+	this.setState({
+		modalUpdateInfo: dato
+	})
+  }
+
   render() {
     return (
       <div className="App mb-5">
@@ -70,6 +109,7 @@ class App extends Component {
 					<div className="col-lg-9">
 						<Tabla 
 							deleteMateria = { this.deleteMateria }
+							editMatterModal = { this.editMatterModal }
 						/>
 					</div>
 				</div>
@@ -81,7 +121,12 @@ class App extends Component {
 					key = { i }
 					datos = { item }
 				/>
-			))
+			))		 
+		}
+		{ <FormUpdate 
+				modalUpdateInfo = { this.state.modalUpdateInfo }
+				editMatter = { this.editMatter }
+		  /> 
 		}
       </div>
     );

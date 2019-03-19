@@ -5,14 +5,14 @@ import {dias, horarios} from './../datos/form.json';
 class Formulario extends Component{
 
 	constructor(props){
+		
 		super(props);
 			this.state = {
 				dias,
 				horarios,
 				materia: '',
 				day: '',
-				turn: '',
-				description: ''		
+				turn: ''
 			}
 		this.addMateria = props.addMateria;
 		this.setMateria = this.setMateria.bind(this);
@@ -28,14 +28,26 @@ class Formulario extends Component{
 
 	setMateria(e){
 		e.preventDefault();
-		const datos = {
-			materia : this.state.materia,
-			day :  this.state.day,
-			turn : this.state.turn,
-			description : this.state.description
-		}
-		document.getElementById("formu").reset();
-		this.props.addMateria(datos);
+		// console.log('updateMateria:',this.state.materia)
+		// console.log('form:',e.target.materia.value)
+		if(e.target.materia.value !== '' && e.target.day.value !== '' && e.target.turn.value !== ''){
+			const datos = {
+				materia : this.state.materia,
+				day :  this.state.day,
+				turn : this.state.turn,
+				description : this.state.description
+			}
+			// document.getElementById("formu").reset();
+			this.props.addMateria(datos);
+			this.setState({
+					materia: '',
+					day: '',
+					turn: '',
+					description: ''
+			})
+		} 
+		//else console.log('lleno')
+		
 	}
 
 	render(){
@@ -56,6 +68,7 @@ class Formulario extends Component{
 						name="materia" 
 						className="form-control mb-4" 
 						onChange={this.actualizoForm} 
+						value = {this.state.materia}
 					/>
 					<label>Matter's name</label>
 				</div>
@@ -64,6 +77,7 @@ class Formulario extends Component{
 					name="day"
 					className="browser-default custom-select custom-select-sm mb-3"
 					onChange={this.actualizoForm}
+					value = {this.state.dia}
 				>
 					<option>Choose your day</option>
 					{dias}
@@ -73,6 +87,7 @@ class Formulario extends Component{
 					name="turn"
 					className="browser-default custom-select custom-select-sm mb-3"
 					onChange={this.actualizoForm}
+					value = {this.state.turno}
 				>
 					<option>Choose your turn</option>
 					{horarios}
@@ -83,6 +98,7 @@ class Formulario extends Component{
 						name="description"
 						onChange={this.actualizoForm} 
 						className="md-textarea form-control"
+						value = {this.state.description}
 						rows="3">
 					</textarea>
 					<label>Description</label>

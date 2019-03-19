@@ -8,7 +8,7 @@ class Tabla extends Component{
 		super(props);
 		this.state = {
 			header,
-			tablaContent
+			tablaContent,
 		}
 		const ndias = dias.length * horarios.length;
 		for( let i = this.state.tablaContent.length + 1 ; i <= (ndias ) ; i++ ){
@@ -23,14 +23,21 @@ class Tabla extends Component{
 				);
 		}
 		this.delete = this.delete.bind(this);
+		this.editMatterModal = this.editMatterModal.bind(this);
 	}
 
 	delete(index){
 		 this.props.deleteMateria(index);
 	}
 
-	render(){
 
+	editMatterModal(index){
+		//console.log('abro modal: ' , index);
+		const datoMateria = this.state.tablaContent.filter(tabla => tabla.id === index)
+		this.props.editMatterModal(datoMateria[0])
+	}
+
+	render(){
 		// datos traidos del json
 		const tablacabecera = this.state.header.map((item,i)=>
 			<th key={i}><i className={ "fas fa-leaf mr-2 " + item.color} aria-hidden="true"></i>{item.dia}</th>
@@ -56,6 +63,7 @@ class Tabla extends Component{
 								key = { fila + i }
 								fila = {fila} 
 								delete = { this.delete }
+								openModal = { this.editMatterModal }
 							/>
 						)
 					}

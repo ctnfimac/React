@@ -107,9 +107,9 @@ class FormUpdate extends Component{
 								</textarea>
 						
 							</div>
-							<div class="modal-footer">
-								<button type="button" className="btn btn-info btn-block m-1" type="submit">Update</button>
-								<button type="button" className="btn btn-warning btn-block m-1" type="submit" data-dismiss="modal">Close</button>
+							<div className="modal-footer">
+								<button type="submit" className="btn btn-info btn-block m-1" >Update</button>
+								<button type="button" className="btn btn-warning btn-block m-1" data-dismiss="modal">Close</button>
 							</div>
 						</form>
 						</div>

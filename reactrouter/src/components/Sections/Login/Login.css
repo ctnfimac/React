@@ -1,3 +1,5 @@
 .card-image__login{
-	background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);
+	background-image: url(https://cdn.pixabay.com/photo/2019/03/20/09/55/road-4068061_960_720.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 }

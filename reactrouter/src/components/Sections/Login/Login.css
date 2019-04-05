@@ -1,5 +1,5 @@
 .card-image__login{
-	background-image: url(https://cdn.pixabay.com/photo/2019/03/20/09/55/road-4068061_960_720.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
+	background: #5C258D;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #4389A2, #5C258D);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #4389A2, #5C258D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

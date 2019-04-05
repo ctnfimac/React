@@ -1,10 +1,8 @@
 import React from 'react'
-import Navigation from '../../Navigation/Navigation';
 import './Portfolio.css'
 
 const Portfolio = ()=>(
 	<React.Fragment>
-		<Navigation />
 		<div class="card card-image card-image__portfolio">
 			<div class="text-white text-center py-5 px-4 my-5">
 				<div>

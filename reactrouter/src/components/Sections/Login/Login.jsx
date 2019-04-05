@@ -1,10 +1,9 @@
 import React from 'react'
-import Navigation from '../../Navigation/Navigation'
 import './Login.css'
 
 const Login = ()=>(
 	<React.Fragment>
-		<Navigation />
+		{/* <Navigation /> */}
 		<div class="card card-image card-image__login">
 			<div class="text-white text-center py-5 px-4 my-5">
 				<div>

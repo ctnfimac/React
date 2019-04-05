@@ -1,0 +1,22 @@
+{
+	"usuarios" : [
+		{
+			"id" : 1,
+			"email" : "christianipc.1987@gmail.com",
+			"password" : "123",
+			"activo" : false
+		},
+		{
+			"id" : 2,
+			"email" : "ricky@gmail.com",
+			"password" : "rik",
+			"activo" : false
+		},
+		{
+			"id" : 3,
+			"email" : "homero@gmail.com",
+			"password" : "hom",
+			"activo" : false
+		}
+	]
+}

@@ -1,20 +1,24 @@
 import React, {Component} from 'react';
 import {Route,Redirect} from 'react-router-dom';
 import Admin from './../Sections/Admin/Admin'
+import {usuarios} from './../../datos/usuarios.json'
 
 
 class PrivateRoute extends Component{
 
-	constructor(props){
-		super(props);
+	constructor(...props){
+		super(...props);
 		this.state={
-			usuarioActivo : true
+			usuarios
 		}
 		this.buscaUsuarioActivo = this.buscaUsuarioActivo.bind(this);
 	}
 
 	buscaUsuarioActivo(){
-		return this.state.usuarioActivo;
+		let existe = 0;
+		existe = this.state.usuarios.filter(usuario=>usuario.activo === true).length
+		//console.log('existe: ', existe)
+		return existe === 0  ? false : true ; 
 	}
 
 	render(){

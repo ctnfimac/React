@@ -5,7 +5,7 @@ import {
 
 const Navigation = () => {
 	return(
-		<nav className="mb-1 navbar navbar-expand-lg navbar-dark red darken-3">
+		<nav className="mb-1 navbar navbar-expand-lg navbar-dark unique-color-dark">
 			<a className="navbar-brand" href="/">ReactRouter</a>
 			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
 				aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,6 +21,9 @@ const Navigation = () => {
 					</li>
 					<li className="nav-item">
 						<Link className="nav-link" to="/login">Login</Link>
+					</li>
+					<li className="nav-item">
+						<Link className="nav-link" to="/admin">Admin</Link>
 					</li>	
 				</ul>
 			</div>

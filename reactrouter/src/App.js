@@ -7,6 +7,7 @@ import Admin from './components/Sections/Admin/Admin';
 import PrivateRoute from './components/Navigation/PrivateRoute';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
+
 class App extends Component {
   render() {
     return (
@@ -14,7 +15,8 @@ class App extends Component {
 			<Navigation />
 			<Switch>
 				<Route path="/" exact component={Login}></Route>
-				<Route path="/login" component={Login}></Route>
+				<Route path="/login" component={Login} >
+				</Route>
 				<Route path="/portfolio" component={Portfolio}></Route>
 				<PrivateRoute path="/admin" component={Admin} />
 				<Route path="/contact" component={Contact}></Route>

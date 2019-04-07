@@ -7,27 +7,18 @@ import {
 
 class Navigation extends Component{
 
-	constructor(props){
-		super(props)
+	constructor(...props){
+		super(...props)
 		
 		this.cerrarSession = this.cerrarSession.bind(this)
-		// this.hayUsuario = this.hayUsuario.bind(this)
 	}
 
 	cerrarSession(){
 		this.props.cerrarSession();
 	}
 
-	// hayUsuario(){
-	// 	let usuariosEncontrados = 0;
-	// 	usuariosEncontrados = this.state.usuarios.filter((usuario)=> usuario.activo === true).length
-	// 	console.log(usuariosEncontrados)
-	// 	return usuariosEncontrados;
-	// }
-
 	render(){
-		
-		const profile = (true) ? 
+		const profile = (this.props.usuariosActivos > 0) ? 
 			<li className="nav-item dropdown">
 				<button className="nav-link dropdown-toggle unique-color-dark" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
 				aria-expanded="false">

@@ -49,26 +49,28 @@ class Tabla extends Component{
 		}
 	
 		return(
-			<table className="table table-bordered white">
-				<thead>
-					<tr>
-					 	{tablacabecera}
-					</tr>
-				</thead>
+			<div class="table-responsive">
+				<table className="table table-bordered white">
+					<thead>
+						<tr>
+							{tablacabecera}
+						</tr>
+					</thead>
 
-				<tbody>
-					{
-						arrayDeFilas.map((fila , i)=>
-							<TablaFila 
-								key = { fila + i }
-								fila = {fila} 
-								delete = { this.delete }
-								openModal = { this.editMatterModal }
-							/>
-						)
-					}
-				</tbody>
-			</table>
+					<tbody>
+						{
+							arrayDeFilas.map((fila , i)=>
+								<TablaFila 
+									key = { fila + i }
+									fila = {fila} 
+									delete = { this.delete }
+									openModal = { this.editMatterModal }
+								/>
+							)
+						}
+					</tbody>
+				</table>
+			</div>
 		);
 	}
 }

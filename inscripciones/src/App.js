@@ -103,7 +103,7 @@ class App extends Component {
 		<main className="mt-5">
 			<div className="container-fluid">
 				<div className="row">
-					<div className="col-lg-3">
+					<div className="col-lg-3 mb-3">
 						<Formulario addMateria = {this.addMateria}/>
 					</div>
 					<div className="col-lg-9">

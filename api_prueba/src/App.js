@@ -5,6 +5,8 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Navegacion from './components/Navegacion/Navegacion';
 import Inicio from './components/Secciones/Inicio/Inicio';
+import Post from './components/Secciones/Post/Post'
+import Delete from './components/Secciones/Delete/Delete'
 //import { render } from 'react-dom';
 
 class App extends Component {
@@ -15,6 +17,8 @@ class App extends Component {
                 <Switch>
                     <Route path = "/" exact component = {Inicio}></Route>
                     <Route path = "/inicio" component = {Inicio}></Route>
+                    <Route path = "/post" component = {Post}></Route>
+                    <Route path = "/delete" component = {Delete}></Route>
                 </Switch>
             </Router>
         );

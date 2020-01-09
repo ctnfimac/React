@@ -3,41 +3,39 @@ import React from 'react'
 
 const Post = () => (
     <section className="api mt-5" id="api">
-        <div className="container p-2">
+        <div className="container">
             <div className="row justify-content-center">
-                <h3 className="mb-4 col-sm-12 text-center">Agregar un Registro a la tabla Personas</h3>
-                <div className="mb-4 bg-dark col-sm-12 col-md-6 pb-3">
-                    <div className=" justify-content-md-between pl-5 pt-4">
+                <h4 className="mb-4 col-sm-12 text-center text-secondary">Agregar un registro a la tabla Personas</h4>
+                <div className="mb-4 bg-dark col-sm-12 col-md-6 pb-3 border border-light">
+                    <div className="justify-content-md-between pt-4">
                         <div className="opcion">
-                            <div className="input-group mb-3">
-                                <div className="input-group-prepend">
-                                    <button id="agregar" className="btn btn-success" type="button">Agregar Persona</button>
-                                </div>
+                            <div className="input-group mb-4">
+                                <button id="agregar" className="btn btn-success" type="button">Agregar Persona</button>
                             </div>  
                         </div>
                         <form>
                             <div className="form-group row">
-                                <label htmlFor="codigo" className="col-sm-2 col-form-label text-white">Código</label>
-                                <div className="col-sm-6">
-                                <input type="text" className="form-control" id="add_codigo" />
+                                <label htmlFor="codigo" className="col-sm-3 col-form-label text-white">Código:</label>
+                                <div className="col-sm-8">
+                                <   input type="text" className="form-control" id="add_codigo" />
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <label htmlFor="nombre" className="col-sm-2 col-form-label text-white">Nombre</label>
-                                <div className="col-sm-6">
-                                <input type="text" className="form-control" id="add_nombre" />
+                                <label htmlFor="nombre" className="col-sm-3 col-form-label text-white">Nombre:</label>
+                                <div className="col-sm-8">
+                                <   input type="text" className="form-control" id="add_nombre" />
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <label htmlFor="apellido" className="col-sm-2 col-form-label text-white">Apellido</label>
-                                <div className="col-sm-6">
-                                <input type="text" className="form-control" id="add_apellido" />
+                                <label htmlFor="apellido" className="col-sm-3 col-form-label text-white">Apellido:</label>
+                                <div className="col-sm-8">
+                                <   input type="text" className="form-control" id="add_apellido" />
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <label htmlFor="nacimiento" className="col-sm-2 col-form-label text-white">Nacimiento</label>
-                                <div className="col-sm-6">
-                                <input type="text" className="form-control" id="add_nacimiento" />
+                                <label htmlFor="nacimiento" className="col-sm-3 col-form-label text-white">Nacimiento:</label>
+                                <div className="col-sm-8">
+                                <   input type="text" className="form-control" id="add_nacimiento" />
                                 </div>
                             </div>
                         </form>

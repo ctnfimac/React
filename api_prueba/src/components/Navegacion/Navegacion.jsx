@@ -5,28 +5,34 @@ import {Link} from 'react-router-dom';
 class Navegacion extends Component{
     render(){
         return(
-            /*<nav className="navbar navbar-dark bg-primary">
-                <Link className="navbar-brand" to="/#">API</Link>
-                <ul className="ul-inline my-2 my-lg-0">
-                    <Link to="/inicio" className="btn my-2 my-sm-0 ml-1 text-white">GET (all)</Link>
-                    <Link to="/post" className="btn my-2 my-sm-0 ml-1 text-white">POST</Link>
-                    <Link to="/delete" className="btn my-2 my-sm-0 ml-1 text-white">DELETE</Link>
-                    <Link to="/put" className="btn my-2 my-sm-0 ml-1 text-white">PUT</Link>
-                    <Link to="/get" className="btn my-2 my-sm-0 ml-1 text-white">GET (one)</Link>
-                </ul>
-            </nav>*/
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div className="container">
+                <Link className="navbar-brand" to="/inicio">API</Link>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#">Features</a>
-                    <a class="nav-item nav-link" href="#">Pricing</a>
-                    <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </div>
+                <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <ul className="navbar-nav">
+                        <li className="nav-item active">
+                            <Link to="/post" className="nav-link">Post</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/delete" className="nav-link">Delete</Link>
+                        </li>
+                        <li className="nav-item">
+                        <Link to="/put" className="nav-link">Put</Link>
+                        </li>
+                        <li className="nav-item dropdown">
+                        <Link className="nav-link dropdown-toggle" to="/#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Get
+                        </Link>
+                            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <Link to="/inicio" className="dropdown-item">all</Link>
+                                <Link to="/get" className="dropdown-item">one</Link>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 </div>
             </nav>
         )

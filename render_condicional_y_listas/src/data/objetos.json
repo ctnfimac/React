@@ -1,0 +1,17 @@
+[
+    {
+      "codigo": "1",
+      "nombre": "gel",
+      "precio": 200
+    },
+    {
+      "codigo": 2,
+      "nombre": "barbijo",
+      "precio": 1000
+    },
+    {
+      "codigo": 3,
+      "nombre": "lavandina",
+      "precio": 600
+    }
+]

@@ -4,12 +4,14 @@ import React from 'react'
 const ListaDeObjetos = (props) => (
     <div>
         <h2>Lista De Objetos</h2>
-        <table Border='1'>
-            <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-            </tr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
             <tbody>
                 {
                     props.objetos.map( (objeto,index) => <tr key = {index}>

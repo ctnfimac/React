@@ -16,7 +16,7 @@ class Post extends Component{
     personaSubmit =(e) =>{
         e.preventDefault()
 
-        fetch('http://127.0.0.1:5000/person',{
+        fetch('http://127.0.0.1:5000/persona',{
         method: 'POST',
         body: JSON.stringify(this.state),
         headers: {
@@ -32,6 +32,13 @@ class Post extends Component{
                 +'</div>'
         })
         .then(response => console.log('Success:', response));
+
+        this.setState({
+            codigo: '',
+            nombre: '',
+            apellido:'',
+            fecha_nacimiento: 'dd-mm-aaaa'
+        })
     }
     
     render(){
@@ -92,7 +99,7 @@ class Post extends Component{
                                                 className="form-control" 
                                                 id="add_nacimiento"
                                                 onChange = { e => this.setState({fecha_nacimiento:e.target.value})}
-                                                placeholder = {this.state.nacimiento} 
+                                                value = {this.state.fecha_nacimiento}
                                             />
                                         </div>
                                     </div>

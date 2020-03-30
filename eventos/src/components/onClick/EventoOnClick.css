@@ -11,7 +11,6 @@
 }
 
 .envent-content{
-    background-color: tomato;
     width: 400px;
     height: 200px;
 }
@@ -28,26 +27,8 @@
     height: 30px;
     margin-left: 30px;
     font-size: 20px;
-    /* background-color: tomato; */
     border: none;
     border-radius: 15px;
     cursor: pointer;
 }
-
-/* .btn-option:nth-child(2){
-    background-color: steelblue;
-}
-
-.btn-option:nth-child(3){
-    background-color: orange;
-}
-
-.btn-option:nth-child(4){
-    background-color: #fff;
-}
-
-.btn-option:nth-child(5){
-    background-color: forestgreen;
-} */
-
 

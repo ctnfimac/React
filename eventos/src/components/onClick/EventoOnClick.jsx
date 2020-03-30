@@ -1,19 +1,21 @@
 import React, {Component} from 'react'
 import './EventoOnClick.css'
 
-const COLORES = {
-    tomato: 'tomato',
-    steelblue: 'steelblue',
-    orange: 'orange',
-    white: '#fff',
-    forestgreen: 'forestgreen'
-}
+
+const COLORES = [
+    '#a29bfe', 
+    'steelblue', 
+    '#fab1a0', 
+    'white', 
+    'forestgreen'
+]
+
 
 class EventoOnClick extends Component{
 
     constructor(){
         super()
-        this.state = { color : ''}
+        this.state = { color : '#fff'}
     }
 
     _renderButton = (color) =>{
@@ -29,13 +31,13 @@ class EventoOnClick extends Component{
     }
     
     render(){
-        console.log('render',this.state.color)
         return(
             <section className="eventonclick">
                 <div className="container">
+                    <h2 className="titulo">Evento onClick</h2>
                     <div className="event-content">
                         <div className="menu">
-                            { Object.keys(COLORES).map(this._renderButton)}
+                            { Object.values(COLORES).map(this._renderButton)}
                         </div>
                         <Panel color= {this.state.color}/>
                     </div>
@@ -59,7 +61,7 @@ class Panel extends Component{
     //         this.setState(prevProps)
     //         console.log('entro al if')
     //     }       
-    //     console.log('entro',prevProps,this.props.color )
+    //     console.log('entro',prevProps,this.props.color )ab1a0
     //     console.log('prevState', prevState)
     // }
 

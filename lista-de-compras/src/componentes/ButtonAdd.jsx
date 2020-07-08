@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import store from '../store';
 
 class ButtonAdd extends Component{
 
@@ -7,8 +8,11 @@ class ButtonAdd extends Component{
         this.agregarProducto = this.agregarProducto.bind(this)
     }
 
-    agregarProducto(){
-        console.log('agregar producto')
+    agregarProducto(producto){
+        store.dispatch({
+            type: "AGREGO_ITEM_NUEVO",
+            producto
+        })
     }
 
     render(){
@@ -16,7 +20,7 @@ class ButtonAdd extends Component{
             <React.Fragment>
                 <button 
                     className="btn-agregar"
-                    onClick={ this.agregarProducto()}
+                    onClick={() => this.agregarProducto({id:0,nombre:"nn"})}
                 >
                 Agregar
                 </button>

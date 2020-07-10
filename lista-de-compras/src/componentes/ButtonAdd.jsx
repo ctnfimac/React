@@ -3,12 +3,7 @@ import store from '../store';
 
 class ButtonAdd extends Component{
 
-    constructor(){
-        super();
-        this.agregarProducto = this.agregarProducto.bind(this)
-    }
-
-    agregarProducto(producto){
+    agregarProducto = (producto) => {
         store.dispatch({
             type: "AGREGO_ITEM_NUEVO",
             producto
@@ -20,7 +15,7 @@ class ButtonAdd extends Component{
             <React.Fragment>
                 <button 
                     className="btn-agregar"
-                    onClick={() => this.agregarProducto({id:0,nombre:"nn"})}
+                    onClick={() => this.agregarProducto({id:0,nombre:""})}
                 >
                 Agregar
                 </button>

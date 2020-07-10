@@ -1,30 +1,51 @@
 import { createStore } from 'redux'
 
 
-const reducer = (state, action) => {
+const estadoInicial = {
+    listaDeCompras: [],
+    listaDeProductosPuestosEnElCarrito: [],
+    contador: 0
+}
 
-    // esto es para que cada item tenga un id distinto
-    if(action.producto != null){
-        action.producto.id = state.productos.length + 1
-        // TODO: pulir valores regresados. obtengo el maximo valor del id actual, conviene usar esto
-        console.log('max:',Math.max.apply( Math, state.productos.map(function(o) { return o.id; })) )
-    }
+const reducer = (state = estadoInicial, action) => {
 
-    
-   
     if(action.type === "AGREGO_ITEM_NUEVO"){
+        state.contador++;
+        action.producto.id = state.contador;
         return{
             ...state,
-            productos: state.productos.concat(action.producto)
+            listaDeCompras: state.listaDeCompras.concat(action.producto)
         };
     }
+
+    if(action.type === "ADD_LISTA_RESUELTOS"){
+        return{
+            ...state,
+            listaDeProductosPuestosEnElCarrito: state.listaDeProductosPuestosEnElCarrito.concat(action.producto),
+            listaDeCompras: state.listaDeCompras.filter( producto => producto.id !== action.producto.id)
+        };
+    }
+
+    if(action.type === "ACTUALIZO_VALOR"){
+        console.log(action.producto)
+        return{
+            ...state,
+            listaDeCompras: state.listaDeCompras.map( producto => {
+                if( producto.id === parseInt(action.producto.id)){
+                    producto.nombre = action.producto.nombre
+                }
+                return producto
+            })
+        }
+    }
+
     return state;
 }
 
 
 
 
-export default createStore( reducer , { productos: [] })
+export default createStore(reducer)
 
 
 

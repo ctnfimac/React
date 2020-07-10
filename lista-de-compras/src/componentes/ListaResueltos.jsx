@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import store from '../store';
 
 
 class ListaResueltos extends Component{
@@ -7,10 +8,18 @@ class ListaResueltos extends Component{
     constructor(){
         super();
         this.state = {
-            productos: [
-                { id: 1, nombre: "Galletitas"}
-            ]
+            productos: []
+                // { id: 1, nombre: "Galletitas"}
+            // ]
         }
+    }
+
+    componentDidMount(){
+        store.subscribe(()=>{
+            this.setState({
+               productos: store.getState().listaDeProductosPuestosEnElCarrito
+            })
+        });
     }
 
     render(){
@@ -27,7 +36,7 @@ class ListaResueltos extends Component{
                             placeholder= "producto..."
                             disabled
                         />
-                        <button className="lista__item--Accion">Eliminar</button>
+                        {/* <button className="lista__item--Accion">Eliminar</button> */}
                     </div>
                 )
             }

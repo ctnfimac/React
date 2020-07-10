@@ -7,26 +7,36 @@ class ListaProductos extends Component{
     constructor(){
         super();
         this.state = {
-            nombre:"",
+            nombre:[], // [{id:1, nombre:"asa"},{id:2, nombre:"sarten"}]
             productos: []
         }
     }
 
     actualizoValorProducto = (e) =>{
-        const {value,name} = e.target
-        this.setState({
-            [name]: value
+        let producto = {
+           id: e.target.id,
+           nombre: e.target.value
+        }
+        store.dispatch({
+            type: "ACTUALIZO_VALOR",
+            producto  
         })
     }
     
     componentDidMount(){
         store.subscribe(()=>{
             this.setState({
-               productos: store.getState().productos
+               productos: store.getState().listaDeCompras
             })
         });
     }
    
+    productoEncontrado = (producto) =>{
+        store.dispatch({
+            type: "ADD_LISTA_RESUELTOS",
+            producto
+        })
+    }
 
     render(){
         return(
@@ -38,14 +48,20 @@ class ListaProductos extends Component{
                         this.state.productos.map( producto =>
                             <div className="lista__item" key= {producto.id}>
                                 <input 
-                                    value= {this.state.nombre}
+                                    value= {producto.nombre}
                                     className= "lista__item--descripcion" 
                                     type= "text" 
                                     name= "nombre"
                                     placeholder= "producto..."
+                                    id= {producto.id}
                                     onChange= { this.actualizoValorProducto }
                                 />
-                                <button className="lista__item--Accion">Listo</button>
+                                <button
+                                    onClick= { () => this.productoEncontrado(producto)} 
+                                    className="lista__item--Accion"
+                                >
+                                    Listo
+                                </button>
                             </div>
                         )
                     }

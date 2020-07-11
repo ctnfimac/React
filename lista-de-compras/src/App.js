@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
 import ListaProductos from './componentes/ListaProductos';
 import ListaResueltos from './componentes/ListaResueltos';
+import './styles/styles.scss';
 
 function App() {
   return (

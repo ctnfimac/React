@@ -39,11 +39,16 @@ class ListaProductos extends Component{
     }
 
     render(){
+        let valor= ""
+        console.log(this.state.productos.length)
+        if(this.state.productos.length > 0){
+            valor =  <h2 className="titulo">Productos</h2>
+        }
         return(
-            <React.Fragment>  
+            <section>  
                 <ButtonAdd />
+                {valor}            
                 <div className="lista">
-                    <h2>Productos</h2>
                     {
                         this.state.productos.map( producto =>
                             <div className="lista__item" key= {producto.id}>
@@ -52,7 +57,7 @@ class ListaProductos extends Component{
                                     className= "lista__item--descripcion" 
                                     type= "text" 
                                     name= "nombre"
-                                    placeholder= "producto..."
+                                    placeholder= "Agregue un nombre"
                                     id= {producto.id}
                                     onChange= { this.actualizoValorProducto }
                                 />
@@ -60,13 +65,13 @@ class ListaProductos extends Component{
                                     onClick= { () => this.productoEncontrado(producto)} 
                                     className="lista__item--Accion"
                                 >
-                                    Listo
+                                    &#10004;
                                 </button>
                             </div>
                         )
                     }
                 </div>
-            </React.Fragment>  
+            </section>  
         );
     }
 }

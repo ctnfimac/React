@@ -17,7 +17,7 @@ class ButtonAdd extends Component{
                     className="btn-agregar"
                     onClick={() => this.agregarProducto({id:0,nombre:""})}
                 >
-                Agregar
+                &#43;
                 </button>
             </React.Fragment>
         )

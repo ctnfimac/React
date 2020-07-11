@@ -27,7 +27,6 @@ const reducer = (state = estadoInicial, action) => {
     }
 
     if(action.type === "ACTUALIZO_VALOR"){
-        console.log(action.producto)
         return{
             ...state,
             listaDeCompras: state.listaDeCompras.map( producto => {

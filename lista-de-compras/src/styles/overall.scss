@@ -1,0 +1,21 @@
+*,
+*::after,
+*::before{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box; 
+}
+
+img{
+    height: auto;
+    max-width: 100%;
+	display: block;
+}
+
+
+$bg-body-1:#4568DC;
+$bg-body-2:#B06AB3; 
+$bg-main:#ebecf0;
+
+$color-text: #444;
+// $color-text-item: #

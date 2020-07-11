@@ -1,0 +1,94 @@
+@import './normalize.scss';
+@import './overall.scss';
+
+
+body{
+    background: $bg-body-1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $bg-body-2, $bg-body-1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $bg-body-2, $bg-body-1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 1em;
+    padding-top: 2.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: center;
+    display: flex;
+}
+
+.main{
+    background-color: $bg-main;
+    border-radius: 3px;
+    padding: 40px;
+    min-height: 60vh;
+    position: relative;
+    min-width: 280px;
+    @media (min-width:45em){
+        max-width: 800px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 100px;
+    }
+}
+
+.titulo{
+    text-align: center;
+    color: $color-text;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.lista{
+    margin-bottom: 40px;
+    color: $color-text;
+    height: 100%;
+    @media (min-width:45em){
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    &__item{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        background-color: white;
+        border-radius: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        @media (min-width:45em){
+            width: 100%;
+        }
+        &--descripcion{
+            color: grey;
+            text-align: center;
+            padding: 4px;
+            border: none;
+            background-color: white;
+            &:focus {
+                outline: none;
+                border: none;
+            }
+        }
+        &--Accion{
+            padding: 4px;
+            cursor: pointer;
+            border: none;     
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    }
+}
+
+
+/*ButtonAdd*/
+.btn-agregar{
+    width: 45px;
+    height: 45px;
+    border:none;
+    border-radius: 50%;
+    background-color: rgb(46,204,113);
+    font-size: 2em;
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}

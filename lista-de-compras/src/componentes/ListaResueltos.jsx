@@ -23,24 +23,30 @@ class ListaResueltos extends Component{
     }
 
     render(){
+        let valor= ""
+        if(this.state.productos.length > 0){
+            valor =  <h2 className="titulo">Encontrados</h2>
+        }
         return(
+            <section>  
+            {valor}   
             <div className="lista">
-            <h2>Encontrados</h2>
-            {
-                this.state.productos.map( producto =>
-                    <div className="lista__item" key= {producto.id}>
-                        <input 
-                            value= {producto.nombre}
-                            className= "lista__item--descripcion" 
-                            type= "text" 
-                            placeholder= "producto..."
-                            disabled
-                        />
-                        {/* <button className="lista__item--Accion">Eliminar</button> */}
-                    </div>
-                )
-            }
-        </div>
+                {
+                    this.state.productos.map( producto =>
+                        <div className="lista__item" key= {producto.id}>
+                            <input 
+                                value= {producto.nombre}
+                                className= "lista__item--descripcion" 
+                                type= "text" 
+                                placeholder= "producto..."
+                                disabled
+                            />
+                            {/* <button className="lista__item--Accion">Eliminar</button> */}
+                        </div>
+                    )
+                }
+            </div>
+            </section>  
         );
     }
 }

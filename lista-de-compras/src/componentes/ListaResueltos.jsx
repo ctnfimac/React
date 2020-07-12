@@ -1,55 +1,36 @@
-import React, { Component } from 'react'
-import store from '../store';
+import React from 'react';
+import { connect } from 'react-redux';
 
 
-class ListaResueltos extends Component{
+const ListaResueltos = ({productos}) =>(
+    <section>  
+        {productos.length > 0 ? <h2 className="titulo">Encontrados</h2> : ""}   
+        <div className="lista">
+            {
+                productos.map( producto =>
+                    <div className="lista__item" key= {producto.id}>
+                        <input 
+                            value= {producto.nombre}
+                            className= "lista__item--descripcion" 
+                            type= "text" 
+                            placeholder= "producto..."
+                            disabled
+                        />
+                        {/* <button className="lista__item--Accion">&#120;</button> */}
+                    </div>
+                )
+            }
+        </div>
+    </section>  
+)
 
 
-    constructor(){
-        super();
-        this.state = {
-            productos: []
-                // { id: 1, nombre: "Galletitas"}
-            // ]
-        }
-    }
+const mapStateToProps = state => ({
+    productos: state.listaDeProductosPuestosEnElCarrito
+}) 
 
-    componentDidMount(){
-        store.subscribe(()=>{
-            this.setState({
-               productos: store.getState().listaDeProductosPuestosEnElCarrito
-            })
-        });
-    }
+const mapDispatchToProps = dispatch => ({
 
-    render(){
-        let valor= ""
-        if(this.state.productos.length > 0){
-            valor =  <h2 className="titulo">Encontrados</h2>
-        }
-        return(
-            <section>  
-            {valor}   
-            <div className="lista">
-                {
-                    this.state.productos.map( producto =>
-                        <div className="lista__item" key= {producto.id}>
-                            <input 
-                                value= {producto.nombre}
-                                className= "lista__item--descripcion" 
-                                type= "text" 
-                                placeholder= "producto..."
-                                disabled
-                            />
-                            {/* <button className="lista__item--Accion">Eliminar</button> */}
-                        </div>
-                    )
-                }
-            </div>
-            </section>  
-        );
-    }
-}
+})
 
-
-export default ListaResueltos;
+export default connect(mapStateToProps, mapDispatchToProps)(ListaResueltos);

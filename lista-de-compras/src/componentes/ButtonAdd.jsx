@@ -1,27 +1,27 @@
-import React, { Component } from 'react'
-import store from '../store';
+import React from 'react';
+import { connect } from 'react-redux';
 
-class ButtonAdd extends Component{
 
-    agregarProducto = (producto) => {
-        store.dispatch({
+const ButtonAdd = ({agregarProducto}) => (
+    <button 
+        className="btn-agregar"
+        onClick={() => agregarProducto({id:0,nombre:""})}
+    >
+    &#43;
+    </button>
+)
+
+const mapDispatchToProps = dispatch => ({
+    agregarProducto(producto){
+        dispatch({
             type: "AGREGO_ITEM_NUEVO",
             producto
         })
     }
+})
 
-    render(){
-        return(
-            <React.Fragment>
-                <button 
-                    className="btn-agregar"
-                    onClick={() => this.agregarProducto({id:0,nombre:""})}
-                >
-                &#43;
-                </button>
-            </React.Fragment>
-        )
-    }
-}
+const mapStateToProps = state => ({
 
-export default ButtonAdd;
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(ButtonAdd);

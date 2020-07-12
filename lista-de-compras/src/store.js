@@ -38,6 +38,15 @@ const reducer = (state = estadoInicial, action) => {
         }
     }
 
+
+    if(action.type === "ELIMINAR_PRODUCTO_DE_CARRITO"){
+        return{
+            ...state,
+            listaDeCompras: state.listaDeCompras.concat(action.producto),
+            listaDeProductosPuestosEnElCarrito: state.listaDeProductosPuestosEnElCarrito.filter( p => p.id !== action.producto.id)
+        }
+    }
+
     return state;
 }
 
